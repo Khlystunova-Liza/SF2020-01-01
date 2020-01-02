@@ -1,0 +1,39 @@
+<!--
+ - Created by ADMIN on 04.11.2019.
+ -->
+
+<aura:component description="FacebookIntegration"
+                controller="FacebookController"
+                implements="flexipage:availableForAllPageTypes">
+
+    <aura:attribute name="postID"
+                    type="String"/>
+
+    <aura:attribute name="contacts"
+                    type="List"/>
+
+    <div aura:id="FacebookLikes">
+        <lightning:layout>
+            <lightning:layoutItem padding="around-small"
+                                  size="4">
+
+                <lightning:input type="text"
+                                 aura:id="inputPostId"
+                                 maxlength="30"
+                                 label="Post ID"
+                                 name="firstName"
+                                 pattern="[0-9]{1,}"
+                                 value="{!v.postID}"
+                                 required="true"
+                                 messageWhenPatternMismatch="invalid post ID"
+                                 messageWhenValueMissing="Please, enter postID"/>
+
+                <lightning:button label="Get likes"
+                                  onclick="{!c.getLikes}"
+                                  variant="brand"
+                                  class="slds-m-top_medium"/>
+
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+</aura:component>

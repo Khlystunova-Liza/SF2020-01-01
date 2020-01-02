@@ -1,0 +1,8 @@
+<!--
+ - Created by ADMIN on 25.10.2019.
+ -->
+
+
+<aura:event type="APPLICATION" description="PassContactEvent">
+    <aura:attribute name="contact" type="Contact"/>
+</aura:event>

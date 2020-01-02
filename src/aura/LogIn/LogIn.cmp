@@ -1,0 +1,35 @@
+<!--
+ - Created by ADMIN on 25.10.2019.
+ -->
+
+<aura:component description="LogIn"
+                controller="RegistrationController">
+
+    <aura:registerEvent name="passEvent" type="c:PassContactEvent"/>
+    <form class="slds-form--stacked">
+        <lightning:layout>
+            <lightning:layoutItem padding="around-small" size="12">
+                <lightning:input  type="email"
+                                  aura:id="inputEmail"
+                                  label="Email"
+                                  name="login"
+                                  maxlength="30"
+                                  required="true"
+                                  messageWhenPatternMismatch="please, enter your real email address"
+                                  messageWhenValueMissing="Please, enter your email"/>
+                <lightning:input  type="password"
+                                  aura:id="inputPassword"
+                                  label="Password"
+                                  name="password"
+                                  required="true"
+                                  maxlength="15"
+                                  messageWhenPatternMismatch="invalid password"
+                                  messageWhenValueMissing="Please, enter your password"/>
+                <lightning:button label="login"
+                                  onclick="{!c.checkContact}"
+                                  variant="brand"
+                                  class="slds-m-top_medium"/>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </form>
+</aura:component>

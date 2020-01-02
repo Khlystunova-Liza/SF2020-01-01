@@ -1,0 +1,37 @@
+<!--
+ - Created by ADMIN on 22.10.2019.
+ -->
+
+<!--
+ - Create table with 10 contacts with ability to edit or delete selected contact,
+  show edit section below the table.
+ -->
+
+<apex:page controller="ContactEditController">
+    <apex:form >
+        <apex:actionFunction name="openEditSection" reRender="EditSection" action="{!selectContact}">
+            <apex:param name="param" value="" assignTo="{!selectedId}"/>
+        </apex:actionFunction>
+        <apex:actionFunction name="deleteContact" action="{!deleteContact}">
+            <apex:param name="param" value="" assignTo="{!selectedId}"/>
+        </apex:actionFunction>
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!contacts}" var="con" rows="10" id="table">
+                <apex:column value="{!con.FirstName}"/>
+                <apex:column value="{!con.LastName}"/>
+                <apex:column >
+                    <input type="button" value="Edit" onclick="openEditSection('{!con.Id}')"/>
+                </apex:column>
+                <apex:column id="col">
+                    <input type="button" value="Delete" onclick="deleteContact('{!con.Id}')"/>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        <apex:outputPanel id="EditSection">
+            <apex:outputPanel rendered="{!selectedId != null}">
+                Last Name
+                <apex:inputField value="{!contact.LastName}"/>
+            </apex:outputPanel>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

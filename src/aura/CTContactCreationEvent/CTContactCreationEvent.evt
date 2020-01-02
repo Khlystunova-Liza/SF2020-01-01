@@ -1,0 +1,8 @@
+<!--
+ - Created by vitek on 03.09.2019.
+ -->
+
+<aura:event type="APPLICATION" description="CTContactCreationEvent">
+    <aura:attribute name="message" type="String"/>
+    <aura:attribute name="title" type="String"/>
+</aura:event>

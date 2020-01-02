@@ -1,0 +1,13 @@
+/**
+ * Created by vitek on 03.09.2019.
+ */
+
+.THIS.mainDiv {
+    background: white;
+    border-radius: 0.25rem;
+    padding: 10px;
+}
+.THIS .header {
+    font-size: 16px;
+    font-weight: bold;
+}

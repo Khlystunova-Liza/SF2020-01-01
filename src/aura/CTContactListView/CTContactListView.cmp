@@ -1,0 +1,52 @@
+<!--
+ - Created by vitek on 03.09.2019.
+ -->
+
+<aura:component description="CTContactListView" controller="CTAccountAppController">
+    <aura:attribute name="Account" type="Account"/>
+    <!--
+     - от родительской компоненты получаем аккаунт без контактов,
+     поэтому используем hendler,который проинициализирует атрибут
+     name="Account" уже с контактами
+     -->
+
+    <aura:handler name="init"
+                  value="{!this}"
+                  action="{!c.doInit}"/>
+    <aura:handler event="c:CTContactCreationEvent"
+                  action="{!c.showToast}"/>
+
+    <div class="mainDiv">
+        <div class="back-ground">
+            <div class="form-to-popup">
+                <ui:outputText value="{!v.Account.Name + '\'s Contacts List View'}" class="header"/>
+                <table>
+                    <aura:iteration items="{!v.Account.Contacts}"
+                                    var="cont">
+                        <tr>
+                            <td>{!cont.FirstName}</td>
+                            <td>{!cont.LastName}</td>
+                            <td style="padding: 5px 0 5px;">
+                                <lightning:button onclick="{!c.editContact}"
+                                                  value="{!cont}"
+                                                  title="Edit"
+                                                  label="Edit"
+                                                  variant="brand"/>
+                            </td>
+                        </tr>
+                    </aura:iteration>
+                </table>
+                <!--<lightning:button onclick="{!c.addNewContact}"
+                                  value="{!acc}"
+                                  label="Add new contact"/>-->
+                <lightning:button onclick="{!c.closePopup}"
+                                  value="{!acc}"
+                                  label="Close"/>
+                <div aura:id="CTContactUpsert"
+                     class="CTContactUpsert"/>
+            </div>
+        </div>
+
+    </div>
+
+</aura:component>

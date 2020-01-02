@@ -1,0 +1,9 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="false" >
+    <h1>Hello Word!</h1>
+    <apex:pageBlock title="A block title">
+        
+    </apex:pageBlock>
+    <p>
+        my first page
+    </p>
+</apex:page>

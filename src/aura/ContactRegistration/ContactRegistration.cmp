@@ -1,0 +1,27 @@
+<!--
+ - Created by ADMIN on 25.10.2019.
+ -->
+
+<aura:component description="ContactRegistration"
+                implements="flexipage:availableForAllPageTypes">
+
+
+    <aura:handler event="c:DestroyParentComponent"
+                  action="{!c.destroyComponent}"/>
+
+    <div class="slds-align--absolute-center">
+    <lightning:button onclick="{!c.createSignUpComponent}"
+                      title="Sign up"
+                      variant="brand"
+                      label="Sign up"/>
+
+
+
+    <lightning:button onclick="{!c.createLogInComponent}"
+                      title="Log in"
+                      variant="brand"
+                      label="Log in"/>
+    </div>
+
+    <div aura:id="ChildComponent" class="slds-align--absolute-center"/>
+</aura:component>

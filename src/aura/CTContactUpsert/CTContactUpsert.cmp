@@ -1,0 +1,35 @@
+<!--
+ - Created by vitek on 03.09.2019.
+ -->
+
+<aura:component description="CTContactUpsert"
+                controller="CTAccountAppController"
+                implements="force:hasRecordId">
+    <aura:attribute name="Contact" type="Contact"/>
+    <aura:attribute name="AccountId" type="String"/>
+    <aura:registerEvent name="implementNewPage" type="c:CTContactCreationEvent"/>
+
+    <div class="back-ground">
+        <div class="form-to-popup">
+            <force:recordEdit aura:id="contactRecordCreator"
+                              recordId="{!v.Contact.Id}"/>
+            <!--<lightning:input aura:id="contactField"
+                             name="firstName"
+                             label="First Name"
+                             value="{!v.Contact.FirstName}"
+                             required="true"/>
+            <lightning:input aura:id="contactField"
+                             name="lastname"
+                             label="Last Name"
+                             value="{!v.Contact.LastName}"
+                             required="true"/>-->
+            <lightning:button label="Cancel"
+                              onclick="{!c.closePopup}"
+                              class="slds-m-top_medium" />
+            <lightning:button label="Save Contact"
+                              onclick="{!c.handleSaveContact}"
+                              variant="brand"
+                              class="slds-m-top_medium"/>
+        </div>
+    </div>
+</aura:component>

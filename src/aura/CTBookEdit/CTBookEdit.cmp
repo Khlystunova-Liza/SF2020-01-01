@@ -1,0 +1,20 @@
+<!--
+ - Created by ADMIN on 25.10.2019.
+ -->
+
+<aura:component description="CTBookEdit" controller="AuthorAppController">
+    <aura:attribute name="Book__c" type="Book__c"/>
+
+    <div class="back-ground">
+        <div class="form-to-popup">
+            <force:recordEdit aura:id="bookRecordCreator"/>
+            <lightning:button label="Cancel"
+                              onclick="{!c.closeComponent}"
+                              class="slds-m-top_medium" />
+            <lightning:button label="Save"
+                              onclick="{!c.saveBook}"
+                              variant="brand"
+                              class="slds-m-top_medium"/>
+        </div>
+    </div>
+</aura:component>

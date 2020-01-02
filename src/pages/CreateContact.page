@@ -1,0 +1,15 @@
+<!--
+ - Created by ADMIN on 23.10.2019.
+ -->
+
+<apex:page standardController="Contact" id="CreateContact">
+    <apex:pageBlock >
+    <apex:pageBlockSection >
+    <apex:form >
+        <apex:inputField value="{!Contact.Name}"/>
+        <apex:inputField value="{!Contact.LastName}"/>
+        <apex:inputField value="{!Contact.Email}"/>
+    </apex:form>
+    </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page>

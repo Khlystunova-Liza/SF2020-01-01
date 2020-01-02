@@ -1,0 +1,7 @@
+<!--
+ - Created by ADMIN on 22.10.2019.
+ -->
+
+<apex:page standardController="Account" id="trealHead" renderAs="advanced_pdf">
+    <apex:detail />
+</apex:page>

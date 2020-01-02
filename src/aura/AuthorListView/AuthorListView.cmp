@@ -1,0 +1,62 @@
+<!--
+ - Created by ADMIN on 23.10.2019.
+ -->
+
+<aura:component description="AuthorListView"
+                controller="AuthorAppController"
+                implements="flexipage:availableForAllPageTypes">
+    <!--
+    aura:attribute - описывает атрибут, доступный в приложении, интерфейсе, компоненте или событии.
+    -->
+    <aura:attribute name="AuthorsList"
+                    type="List"/>
+    <!--
+ handler - вызываем в контроллере js функцию doInit
+ {!this} передаем ему объект нашей aura компонеты
+ -->
+    <aura:handler name="init"
+                  value="{!this}"
+                  action="{!c.doInit}"/>
+    <div class="mainDiv">
+        <ui:outputText value="Author list"
+                       class="header"/>
+        <lightning:accordion class="slds-accordion">
+            <aura:iteration items="{!v.AuthorsList}"
+                            var="aut">
+                <lightning:accordionSection class="slds-accordion__section"
+                                            label="{!aut.Name}">
+                    <aura:set attribute="body">
+                        <table class="slds-table slds-table--bordered slds-table--cell-buffer slds-table--striped slds-max-medium-table--stacked-horizontal">
+                            <thead>
+                            <tr>
+                                <td class="slds-accordion">
+                                    Book Name
+                                </td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <aura:iteration items="{!aut.Books__r}"
+                                            var="book">
+                                <tr>
+                                    <td>
+                                        {!book.Name}
+                                    </td>
+                                    <td>
+                                        <lightning:button onclick="{!c.editBook}"
+                                                          value="{!book}"
+                                                          title="Edit books"
+                                                          variant="brand"
+                                                          label="Edit"/>
+                                    </td>
+                                </tr>
+                            </aura:iteration>
+                            </tbody>
+                        </table>
+                    </aura:set>
+                </lightning:accordionSection>
+            </aura:iteration>
+        </lightning:accordion>
+        <div aura:id="CTBookEdit"
+            class="CTBookEdit"/>
+    </div>
+</aura:component>

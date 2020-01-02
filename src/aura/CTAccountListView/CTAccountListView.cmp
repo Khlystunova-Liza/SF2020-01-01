@@ -1,0 +1,42 @@
+<!--
+ - Created by vitek on 03.09.2019.
+ -->
+
+<aura:component description="CTAccountListView"
+                controller="CTAccountAppController"
+                implements="flexipage:availableForAllPageTypes">
+    <!--
+ aura:attribute - описывает атрибут, доступный в приложении, интерфейсе, компоненте или событии.
+ -->
+    <aura:attribute name="AccList"
+                    type="List"/>
+    <!--
+ handler - вызываем в контроллере js функцию doInit
+ {!this} передаем ему объект нашей aura компонеты
+ this - handler передает компоненту дальше в js controller
+ -->
+    <aura:handler name="init"
+                  value="{!this}"
+                  action="{!c.doInit}"/>
+    <div class="mainDiv">
+        <ui:outputText value="Account List View" class="header"/>
+        <table>
+            <aura:iteration items="{!v.AccList}"
+                            var="acc">
+                <tr>
+                    <td>{!acc.Name}</td>
+                    <td style="padding: 5px 0 5px;">
+                        <!--  когда мы нажимаем на кнопку, вырисовывается дочерний компонент-->
+                        <lightning:button onclick="{!c.viewContactDetails}"
+                                          value="{!acc}"
+                                          title="View Contacts"
+                                          variant="brand"
+                                          label="View Contacts"/>
+                    </td>
+                </tr>
+            </aura:iteration>
+        </table>
+        <!--<div aura:id="CTContactListView"
+             class="CTContactListView"/>-->
+    </div>
+</aura:component>

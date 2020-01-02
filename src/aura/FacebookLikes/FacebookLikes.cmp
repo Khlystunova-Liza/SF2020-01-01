@@ -1,0 +1,39 @@
+<!--
+ - Created by ADMIN on 06.11.2019.
+ -->
+
+<aura:component description="FacebookLikes"
+                controller="FacebookController"
+                implements="flexipage:availableForAllPageTypes">
+
+    <aura:attribute name="contacts" type="List"/>
+    <div aura:id="FacebookIntegration">
+        <lightning:layout>
+            <lightning:layoutItem padding="around-small"
+                                  size="4">
+
+                <table class="slds-table slds-table--bordered
+                     slds-table--striped
+                     slds-table--cell-buffer
+                     slds-table--fixed-layout tab">
+                    <tbody>
+                    <aura:iteration items="{!v.contacts}" var="contact">
+                        <tr>
+                            <td>
+                                <div class="slds-truncate">
+                                    {!contact.LastName}
+                                </div>
+                            </td>
+                        </tr>
+                    </aura:iteration>
+                    </tbody>
+                </table>
+
+                <lightning:button label="create contacts"
+                                  onclick="{!c.createContactsByLikes}"
+                                  variant="brand"
+                                  class="slds-m-top_medium"/>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+</aura:component>
